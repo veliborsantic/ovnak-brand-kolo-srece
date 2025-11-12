@@ -1,0 +1,236 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.wheelContainer {
+  position: relative;
+  width: 787px;
+  height: 787px;
+  overflow: visible;
+  contain: layout style paint;
+  margin: 20px 0;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  border: 8px solid #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  will-change: transform;
+  transform-origin: center;
+}
+
+.wheelItem {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transform-origin: center;
+}
+
+.logo {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.pointer {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 40px solid #fff;
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.spinButton {
+  padding: 16px 48px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spinButton:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.spinButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+  min-width: 250px;
+  z-index: 20;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.result h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.winnerLogo {
+  object-fit: contain;
+  background: transparent;
+}
+
+.winnerName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 0;
+}
+
+/* Tablet portret mod */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    gap: min(3vh, 20px);
+    padding: min(2vh, 10px) 0;
+  }
+
+  .wheelContainer {
+    width: min(93vw, 91vh);
+    height: min(93vw, 91vh);
+    flex-shrink: 0;
+  }
+
+  .logoContainer {
+    width: min(44vw, 36vh);
+    height: min(44vw, 36vh);
+    top: min(3.5vw, 3vh);
+  }
+
+  .logo {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .pointer {
+    border-left-width: min(2vw, 1.5vh);
+    border-right-width: min(2vw, 1.5vh);
+    border-top-width: min(4vw, 3vh);
+    top: min(-2vw, -1.5vh);
+  }
+
+  .spinButton {
+    padding: min(2.5vh, 16px) min(8vw, 48px);
+    font-size: min(2.2vh, 1.4rem);
+    margin-top: min(2vh, 10px);
+  }
+
+  .result {
+    padding: min(3vh, 24px) min(4vw, 30px);
+    min-width: min(70vw, 300px);
+    max-width: 90vw;
+    margin-top: min(2vh, 10px);
+  }
+
+  .result h2 {
+    font-size: min(2.5vh, 1.6rem);
+    margin-bottom: min(2vh, 15px);
+  }
+
+  .winnerLogo {
+    width: min(48vw, 40vh) !important;
+    height: min(48vw, 40vh) !important;
+  }
+
+  .winnerName {
+    font-size: min(2.2vh, 1.4rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .wheelContainer {
+    width: 551px;
+    height: 551px;
+  }
+
+  .logoContainer {
+    width: 240px;
+    height: 240px;
+    top: 15px;
+  }
+
+  .logo {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .spinButton {
+    padding: 12px 36px;
+    font-size: 1.2rem;
+  }
+}
