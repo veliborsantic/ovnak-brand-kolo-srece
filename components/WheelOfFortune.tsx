@@ -91,6 +91,12 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       'HypoAllergenic brend ima vlastiti slogan: „Makeup for every skin" — šminka za svaku kožu.',
       "Iako dolazi iz Poljske, HypoAllergenic ima europske i japanske standarde kvalitete — spoj znanosti i nježnosti.",
     ],
+    Ovnak: [
+      "Ovnak je brend koji nudi širok asortiman kozmetičkih proizvoda visoke kvalitete za svakodnevnu njegu kože.",
+      "Ovnak brand, kao i naziv poduzeća je dobio ime po cvijetu.",
+      "Ovnak brand ima preko 5000 artikala u svojoj ponudi.",
+      "Ovnak brand se sastoji od nekoliko linija proizvoda: Beauty, Home - dopuniti"
+    ],
   };
 
   const getRandomFact = (brandName: string): string => {
