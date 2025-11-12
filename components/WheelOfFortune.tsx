@@ -71,7 +71,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
     ],
     Hypo: [
       "HypoAllergenic je poljski brend koji dolazi iz poznate kozmetičke kuće Bell Cosmetics.",
-      "HypoAllergenic je ssnovan iz želje da se napravi šminka koju mogu nositi i osobe s alergijama.",
+      "HypoAllergenic je osnovan iz želje da se napravi šminka koju mogu nositi i osobe s alergijama.",
       'Ime „HypoAllergenic" znači „manje vjerojatno da izazove alergije" — izraz potječe iz medicinske terminologije.',
       "Svi HypoAllergenic proizvodi su testirani pod nadzorom dermatologa i alergologa.",
       "HypoAllergenic koristi samo niskoalergene pigmente, bez parabena, mirisa i alkohola!",
@@ -95,7 +95,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       "Ovnak je brend koji nudi širok asortiman kozmetičkih proizvoda visoke kvalitete za svakodnevnu njegu kože.",
       "Ovnak brand, kao i naziv poduzeća je dobio ime po cvijetu.",
       "Ovnak brand ima preko 5000 artikala u svojoj ponudi.",
-      "Ovnak brand se sastoji od nekoliko linija proizvoda: Beauty, Home - dopuniti"
+      "Ovnak brand se sastoji od nekoliko linija proizvoda: Beauty, Home - dopuniti",
     ],
   };
 
