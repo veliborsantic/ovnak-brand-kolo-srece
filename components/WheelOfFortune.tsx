@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./WheelOfFortune.module.css";
 
@@ -18,10 +18,42 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
-  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [randomFact, setRandomFact] = useState<string>("");
   const wheelRef = useRef<HTMLDivElement>(null);
 
   const anglePerItem = 360 / brands.length;
+
+  // Tekstovi za "Jeste li znali?" po brandu
+  const brandFacts: Record<string, string[]> = {
+    Ziaja: [
+      "Ziaja su osnovali bračni par farmaceuta — Aleksandra i Zenon Ziaja, u Poljskoj 1989. godine!",
+      "Prvi proizvod branda Ziaja bio je krema s kozjim mlijekom, napravljena doslovno u kućnom laboratoriju!",
+      "Ziaja je i danas obiteljska firma — nije prodana nikome, ni korporacijama ni investitorima.",
+      'Naziv "Ziaja" zapravo je prezime bračnog para - osnivača branda!',
+      "Ziaja proizvodi se izvoze u više od 60 zemalja svijeta, uključujući Japan, Brazil i Južnu Afriku.",
+      "Svake godine Ziaja razvije više od 50 novih formula u vlastitim laboratorijima.",
+      "Ziaja kreme i losioni prolaze klinička dermatološka testiranja, kao i lijekovi!",
+      "Mnoge Ziaja linije imaju farmaceutski pH od 5,5 — savršeno prilagođen koži.",
+      "Linija s kozjim mlijekom i danas je najpoznatija — i stara je preko 30 godina!",
+      "Ziaja ima i proizvode s maslinovim uljem, kakaom, morskim algama i kozjim mlijekom – zvuči kao spa tretman u bočici.",
+      'Ziaja ima vlastiti spa centar u Poljskoj – "Ziaja Spa" – gdje se koriste isključivo njihovi proizvodi!',
+      "Ziaja proizvodi su cruelty-free još prije nego što je to postalo globalni trend.",
+      "Ziaja ima veganske linije koje su posebno razvijene za osjetljivu i atopičnu kožu.",
+      "Većina Ziaja pakiranja izrađena je od reciklirane plastike, a sve bočice su 100% recyclable.",
+      "Ziaja laboratorij koristi vlastitu filtriranu baltičku vodu u proizvodnji!",
+      "Neki Ziaja proizvodi sadrže enzime iz morskih algi koji potiču regeneraciju kože – gotovo kao prirodni botoks!",
+      "Ziaja testira proizvode na ekstremnim temperaturama i vlažnosti, kako bi bili stabilni u svim klimama.",
+      "Ziaja ima i medicinsku dermokozmetiku – liniju Med, koja se koristi kod ekcema i akni.",
+      "Ziaja Sun SPF jedan je od najprodavanijih europskih krema za sunčanje po omjeru cijene i kvalitete!",
+      "Iako je Ziaja brand globalno poznat, i dalje proizvodi sve u Poljskoj, u svojoj originalnoj tvornici u Gdanjsku.",
+    ],
+  };
+
+  const getRandomFact = (brandName: string): string => {
+    const facts = brandFacts[brandName] || [];
+    if (facts.length === 0) return "";
+    return facts[Math.floor(Math.random() * facts.length)];
+  };
 
   const spin = () => {
     if (isSpinning) return;
@@ -42,29 +74,10 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       const winnerIndex = Math.floor(normalizedAngle / anglePerItem);
       const winner = brands[winnerIndex];
       setSelectedBrand(winner);
+      setRandomFact(getRandomFact(winner.name));
       setIsSpinning(false);
-      setIsFadingOut(false);
     }, 6000); // Animacija traje 6 sekundi
   };
-
-  // Automatski sakrij result view nakon 3.5 sekunde i dodaj fade-out
-  useEffect(() => {
-    if (selectedBrand) {
-      const fadeOutTimer = setTimeout(() => {
-        setIsFadingOut(true);
-      }, 3500); // Počni fade-out nakon 3.5 sekunde
-
-      const hideTimer = setTimeout(() => {
-        setSelectedBrand(null);
-        setIsFadingOut(false);
-      }, 5500); // Sakrij nakon 5.5 sekundi (3.5s + 2s fade-out)
-
-      return () => {
-        clearTimeout(fadeOutTimer);
-        clearTimeout(hideTimer);
-      };
-    }
-  }, [selectedBrand]);
 
   // Generiraj boje za svaki segment
   const colors = [
@@ -135,9 +148,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
         </div>
         <div className={styles.pointer}></div>
         {selectedBrand && (
-          <div
-            className={`${styles.result} ${isFadingOut ? styles.fadeOut : ""}`}
-          >
+          <div className={styles.result}>
             <h2>Osvojili ste poklon iz asortimana</h2>
             <div className={styles.winner}>
               <Image
@@ -148,7 +159,12 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
                 className={styles.winnerLogo}
                 unoptimized
               />
-              <p className={styles.winnerName}>Čestitamo!</p>
+              <h3 className={styles.didYouKnow}>Jeste li znali?</h3>
+              {randomFact && (
+                <div className={styles.factContainer}>
+                  <p className={styles.factText}>{randomFact}</p>
+                </div>
+              )}
             </div>
           </div>
         )}
