@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./WheelOfFortune.module.css";
 
@@ -18,6 +18,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const wheelRef = useRef<HTMLDivElement>(null);
 
   const anglePerItem = 360 / brands.length;
@@ -42,8 +43,28 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       const winner = brands[winnerIndex];
       setSelectedBrand(winner);
       setIsSpinning(false);
+      setIsFadingOut(false);
     }, 6000); // Animacija traje 6 sekundi
   };
+
+  // Automatski sakrij result view nakon 3.5 sekunde i dodaj fade-out
+  useEffect(() => {
+    if (selectedBrand) {
+      const fadeOutTimer = setTimeout(() => {
+        setIsFadingOut(true);
+      }, 3500); // Počni fade-out nakon 3.5 sekunde
+
+      const hideTimer = setTimeout(() => {
+        setSelectedBrand(null);
+        setIsFadingOut(false);
+      }, 5500); // Sakrij nakon 5.5 sekundi (3.5s + 2s fade-out)
+
+      return () => {
+        clearTimeout(fadeOutTimer);
+        clearTimeout(hideTimer);
+      };
+    }
+  }, [selectedBrand]);
 
   // Generiraj boje za svaki segment
   const colors = [
@@ -114,8 +135,10 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
         </div>
         <div className={styles.pointer}></div>
         {selectedBrand && (
-          <div className={styles.result}>
-            <h2>Osvojili ste:</h2>
+          <div
+            className={`${styles.result} ${isFadingOut ? styles.fadeOut : ""}`}
+          >
+            <h2>Osvojili ste poklon iz asortimana</h2>
             <div className={styles.winner}>
               <Image
                 src={selectedBrand.logo}
@@ -125,7 +148,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
                 className={styles.winnerLogo}
                 unoptimized
               />
-              <p className={styles.winnerName}>{selectedBrand.name}</p>
+              <p className={styles.winnerName}>Čestitamo!</p>
             </div>
           </div>
         )}

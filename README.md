@@ -32,3 +32,4 @@ Zamijenite placeholder URL-ove u `app/page.tsx` sa stvarnim logotipima. Možete 
 - URL-ove do slika na internetu
 - Next.js Image komponentu za optimizaciju
 
+
