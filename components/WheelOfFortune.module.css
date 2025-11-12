@@ -304,6 +304,7 @@
     height: min(90vw, 90vh);
     max-width: 551px;
     max-height: 551px;
+    contain: none !important;
   }
 
   .logoContainer {
@@ -330,13 +331,18 @@
   }
 
   .result {
-    padding: 15px 12px;
-    min-width: min(90vw, 300px);
-    max-width: 95vw;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: slideInMobile 0.5s ease-out;
+    padding: 15px 12px !important;
+    min-width: min(90vw, 300px) !important;
+    max-width: 95vw !important;
+    top: 55px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    animation: slideInMobile 0.5s ease-out !important;
+    position: fixed !important;
+    z-index: 1000 !important;
+    margin: 0 !important;
   }
 
   .result h2 {
