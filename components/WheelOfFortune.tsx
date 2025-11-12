@@ -45,7 +45,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       "Ziaja testira proizvode na ekstremnim temperaturama i vlažnosti, kako bi bili stabilni u svim klimama.",
       "Ziaja ima i medicinsku dermokozmetiku – liniju Med, koja se koristi kod ekcema i akni.",
       "Ziaja Sun SPF jedan je od najprodavanijih europskih krema za sunčanje po omjeru cijene i kvalitete!",
-      "Iako je Ziaja brand globalno poznat, i dalje proizvodi sve u Poljskoj, u svojoj originalnoj tvornici u Gdanjsku.",
+      "Iako je brand Ziaja globalno poznat, i dalje proizvodi sve u Poljskoj, u svojoj originalnoj tvornici u Gdanjsku.",
     ],
   };
 
