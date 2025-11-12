@@ -278,14 +278,16 @@
 
 @media (max-width: 600px) {
   .wheelContainer {
-    width: 551px;
-    height: 551px;
+    width: min(90vw, 90vh);
+    height: min(90vw, 90vh);
+    max-width: 551px;
+    max-height: 551px;
   }
 
   .logoContainer {
-    width: 240px;
-    height: 240px;
-    top: 15px;
+    width: min(30vw, 30vh);
+    height: min(30vw, 30vh);
+    top: min(2vw, 2vh);
   }
 
   .logo {
@@ -293,8 +295,46 @@
     height: 100% !important;
   }
 
+  .pointer {
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-top-width: 40px;
+    top: -20px;
+  }
+
   .spinButton {
     padding: 12px 36px;
+    font-size: 1.2rem;
+  }
+
+  .result {
+    padding: 20px 15px;
+    min-width: min(85vw, 280px);
+    max-width: 90vw;
+  }
+
+  .result h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  .winnerLogo {
+    width: min(60vw, 50vh) !important;
+    height: min(60vw, 50vh) !important;
+    margin-top: -10px;
+  }
+
+  .didYouKnow {
+    font-size: 1.5rem;
+  }
+
+  .factContainer {
+    padding: 15px 18px;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+
+  .factText {
     font-size: 1.2rem;
   }
 }
