@@ -58,14 +58,14 @@
 
 .pointer {
   position: absolute;
-  top: -20px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 40px solid #fff;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 80px solid #fff;
   z-index: 10;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
@@ -193,10 +193,10 @@
   }
 
   .pointer {
-    border-left-width: min(2vw, 1.5vh);
-    border-right-width: min(2vw, 1.5vh);
-    border-top-width: min(4vw, 3vh);
-    top: min(-2vw, -1.5vh);
+    border-left-width: min(4vw, 3vh);
+    border-right-width: min(4vw, 3vh);
+    border-top-width: min(8vw, 6vh);
+    top: min(-4vw, -3vh);
   }
 
   .spinButton {
