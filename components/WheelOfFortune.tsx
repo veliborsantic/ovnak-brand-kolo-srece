@@ -47,6 +47,28 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       "Ziaja Sun SPF jedan je od najprodavanijih europskih krema za sunčanje po omjeru cijene i kvalitete!",
       "Iako je brand Ziaja globalno poznat, i dalje proizvodi sve u Poljskoj, u svojoj originalnoj tvornici u Gdanjsku.",
     ],
+    Septona: [
+      "Septona je grčki brend, osnovan u malom obiteljskom pogonu u 1970-ima.",
+      'Ime "Septona" dolazi od grčke riječi za "čistoću" i "septičko" – što simbolizira higijenu i njegu.',
+      "Septona je počela s proizvodnjom pamučnih štapića i jastučića, a danas ima stotine proizvoda.",
+      "Septona proizvodi se izvoze u više od 70 zemalja svijeta!",
+      "Septona je vodeći brend higijene u Grčkoj, a konkurira i globalnim gigantima poput Nivee i Johnson's-a!",
+      'Septona ima vlastiti laboratorij u kojem razvija sve formule — ništa se ne kupuje "gotovo".',
+      "Septona tvornica u Euboei (Evia) jedna je od najvećih u Europi za proizvodnju higijenskih proizvoda.",
+      "Septona ima cijelu liniju proizvoda za bebe, pod imenom Calm n' Care.",
+      "Septona baby maramice s kamilicom i aloe verom preporučuju i pedijatri u Grčkoj.",
+      "Septona koristi pamučno ulje, vitamin E i biljne ekstrakte umjesto sintetičkih mirisa!",
+      "Septon brend ima dermatološki testirane formule, čak i za osjetljivu ili atopičnu kožu.",
+      "Septona proizvodi ne sadrže alkohol, parabene ni fenoksietanol – čista koža, nula iritacija.",
+      "Septona je jedan od prvih brendova u jugoistočnoj Europi koji je prešao na biorazgradive maramice!",
+      "Cijela linija Septona ambalaže izrađena je od reciklirane plastike, a dio je i kompostabilan!",
+      "U nekim hotelima u Grčkoj koriste se Septona proizvodi kao službeni brend higijene.",
+      "Septona brend je aktivan u humanitarnim projektima – donira proizvode bolnicama, školama i izbjegličkim centrima. 💙",
+      "Septona ima i liniju za sportaše, sa specijalnim maramicama i gelovima za dezinfekciju ruku.",
+      "Septona maramice prošle su test sterilnosti ISO 22716 – standard koji koriste farmaceutske kompanije!",
+      'Septona slogan "Feel the purity" nije samo reklama – to je filozofija brenda od prvog dana!',
+      "Iako je Septona globalni brend, i dalje proizvodi sve u Grčkoj — ništa se ne seli u Kinu ili Tursku!",
+    ],
   };
 
   const getRandomFact = (brandName: string): string => {
