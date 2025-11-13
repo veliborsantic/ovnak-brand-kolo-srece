@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./WheelOfFortune.module.css";
 
@@ -20,6 +20,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
   const [randomFact, setRandomFact] = useState<string>("");
   const wheelRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const anglePerItem = 360 / brands.length;
 
@@ -104,6 +105,31 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
     if (facts.length === 0) return "";
     return facts[Math.floor(Math.random() * facts.length)];
   };
+
+  // Zatvori facts view klikom van njega
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (
+        selectedBrand &&
+        resultRef.current &&
+        !resultRef.current.contains(target)
+      ) {
+        setSelectedBrand(null);
+        setRandomFact("");
+      }
+    };
+
+    if (selectedBrand) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [selectedBrand]);
 
   const spin = () => {
     if (isSpinning) return;
@@ -198,7 +224,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
         </div>
         <div className={styles.pointer}></div>
         {selectedBrand && (
-          <div className={styles.result}>
+          <div ref={resultRef} className={styles.result}>
             <h2>Osvojili ste poklon iz asortimana</h2>
             <div className={styles.winner}>
               <Image
@@ -209,9 +235,9 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
                 className={styles.winnerLogo}
                 unoptimized
               />
-              <h3 className={styles.didYouKnow}>Jeste li znali?</h3>
               {randomFact && (
                 <div className={styles.factContainer}>
+                  <h3 className={styles.didYouKnow}>Jeste li znali?</h3>
                   <p className={styles.factText}>{randomFact}</p>
                 </div>
               )}
@@ -220,11 +246,13 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
         )}
       </div>
 
-      {!isSpinning && (
-        <button onClick={spin} className={styles.spinButton}>
-          Pokreni kolo sreće!
-        </button>
-      )}
+      <button 
+        onClick={spin} 
+        className={styles.spinButton}
+        style={{ visibility: isSpinning ? 'hidden' : 'visible' }}
+      >
+        Pokreni kolo sreće!
+      </button>
     </div>
   );
 }
