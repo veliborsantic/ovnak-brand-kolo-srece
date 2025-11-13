@@ -94,9 +94,25 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
     ],
     Ovnak: [
       "Ovnak je brend koji nudi širok asortiman kozmetičkih proizvoda visoke kvalitete za svakodnevnu njegu kože.",
-      "Ovnak brand, kao i naziv poduzeća je dobio ime po cvijetu.",
-      "Ovnak brand ima preko 5000 artikala u svojoj ponudi.",
-      "Ovnak brand se sastoji od nekoliko linija proizvoda: Beauty, Home - dopuniti",
+      "Ime Ovnak je nastalo po cvijetu istoimenog naziva, koji cvjeta u rodnom mjestu obitelji osnivača branda.",
+      "Ovnak brand ima preko 8.000 artikala u svojoj ponudi.",
+      "Svakih 12 sekundi se proda jedan artikal Ovnak branda!",
+      "Ovnak staklene turpije se ne istupljuju niti nakon tisuća korištenja!",
+      "Ovnak brand se sastoji od 5 linija: Trendy, Beauty, Professional, Classic i Home",
+      "Ovnak interdentalne četkice uklanjaju 40% plaka koji obična četkica ne može dohvatiti.",
+      "Ovnak pinceta s kosim vrhom može uhvatiti i dlačicu dugačku samo 0,2 mm!",
+      "Ovnak zubni konac čisti oko 35% površine zuba!",
+      "Ovnak mekane četkice uklanjaju plak jednako učinkovito kao tvrde, ali su 4× nježnije prema desnima.",
+      "Neke Ovnak četkice za zube imaju različite visine vlakana, koji dopiru dublje između zuba i duž linije desnih.",
+      "Najsigurnije turpijanje je pod kutom od 45° — štiti nokat od “rascjepa”.",
+      "Ručno brušeni vrhovi Ovnak pinceta spajaju se s preciznošću od 0,01 mm!",
+      "Ovnak staklena turpija ne istupljuje se niti nakon tisuća korištenja!",
+      "Većina Ovnak bambusovih četkica koristi veganske najlonske ili biljne vlaknaste dlačice.",
+      "Ovnak lateks-free spužvice pogodne su za osjetljivu i kožu sklonu alergijama.",
+      "Ovnak zubni konac je jedini alat koji čisti područje gdje se najčešće razvija karijes — između zuba!",
+      "Ovnak ortodontski vosak napravljen je od prirodnih, hipoalergenih voskova, često na bazi parafina ili pčelinjeg voska.",
+      "Ovnak turpija za poliranje noktiju je savršena za one koji ne vole lak — daje prirodan, zdrav i sjajan izgled noktiju!",
+      "Ovnak spužvice za piling potiču mikrocirkulaciju, što može dati koži zdraviji, blistaviji izgled."
     ],
   };
 
@@ -246,10 +262,10 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
         )}
       </div>
 
-      <button 
-        onClick={spin} 
+      <button
+        onClick={spin}
         className={styles.spinButton}
-        style={{ visibility: isSpinning ? 'hidden' : 'visible' }}
+        style={{ visibility: isSpinning ? "hidden" : "visible" }}
       >
         Pokreni kolo sreće!
       </button>
