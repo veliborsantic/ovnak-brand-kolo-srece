@@ -108,7 +108,7 @@ export default function WheelOfFortune({ brands }: WheelOfFortuneProps) {
       "Ručno brušeni vrhovi Ovnak pinceta spajaju se s preciznošću od 0,01 mm!",
       "Ovnak staklena turpija ne istupljuje se niti nakon tisuća korištenja!",
       "Većina Ovnak bambusovih četkica koristi veganske najlonske ili biljne vlaknaste dlačice.",
-      "Ovnak lateks-free spužvice pogodne su za osjetljivu i kožu sklonu alergijama.",
+      "Svakih 12 sekundi se proda jedan artikal Ovnak branda!",
       "Ovnak zubni konac je jedini alat koji čisti područje gdje se najčešće razvija karijes — između zuba!",
       "Ovnak ortodontski vosak napravljen je od prirodnih, hipoalergenih voskova, često na bazi parafina ili pčelinjeg voska.",
       "Ovnak turpija za poliranje noktiju je savršena za one koji ne vole lak — daje prirodan, zdrav i sjajan izgled noktiju!",
